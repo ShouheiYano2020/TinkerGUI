@@ -41,12 +41,16 @@ PATHを追加したら、コマンドプロンプトを立ち上げる
 mysqlへのログインができたら、新規ユーザを追加する。
 TinkerGUIにおいて、ユーザとパスワードを下記で追加する。
 
-<User : dbuser >
+<User : devuser >
 <Passwd: dbpasswd >
 
-追加するコマンドは、mysql上で下記となる。
+追加するコマンドは、mysql上で下記となる。(なお、ユーザ名やパスワード等はシングルコーテーション「’」で囲む必要がある。省略しないでね。)
 
 mysql> create user 'devuesr'@'%' identified by 'dbpasswd';
+
+コマンドを実行すると、
+Query OK, 1 row affected (0.01 sec)
+と表示されればOKである。コマンドの間違いや、クエリの最後に「；」セミコロンを忘れないように。
 
 ## 新規データベースの作成
 ユーザを追加したら、データベースを作成する。
@@ -57,5 +61,10 @@ TinkerGUIにおいて必要なデータベース名は
 作成するコマンドは、mysql上で下記となる。
 
 mysql>create database sample;
+
+## データベースへの新規作成ユーザのアクセス権の付与
+データベースへ先ほど作成したユーザがアクセスできるようにアクセス権を付与する。
+
+mysql>grant all on *.* to 'devuser'@'%';
 
 
