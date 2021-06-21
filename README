@@ -1,0 +1,10 @@
+# 事前準備
+
+## MySQL のダウンロードが必要
+MySQLのサイトにいって、ダウンロードからGPL版をダウンロードする。
+
+[https://www.mysql.com/]
+
+Downloadのタグを押してページの下のほう、[MySQL Community (GPL) Downloads »]をクリック
+自分のOSに合わせたMySQLをダウンロード
+
