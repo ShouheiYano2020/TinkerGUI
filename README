@@ -8,4 +8,54 @@ MySQLのサイトにいって、ダウンロードからGPL版をダウンロー
 Downloadのタグを押してページの下のほう、[MySQL Community (GPL) Downloads »]をクリック
 自分のOSに合わせたMySQLをダウンロード
 
+## MySQLのインストール
+このサイトが参考になる。
+https://qiita.com/ryo-sato/items/bd026f5e627a746f1734
+
+mysql-installer-web-community-8.0.25.0.msi
+
+をインストール、Visual Studio等があらかじめ入って入っている必要があるようだ。
+途中に、MySQLサーバのパスワードを設定する必要がある。今回は無難に「ubuntu」を指定。弱いパスワードだと怒られる。
+
+１０分程度のインストール時間がかかる。
+
+最後に、mysqlサーバが動きだし、rootでのログインの確認がある。スキップしてもいいが、先ほどパスワードを入れてみる。
+正しいパスワードであればデータベースにコネクトされることが確認できる。
+
+
+# MySQLの実行
+
+## PATHの追加
+インストールが終わったら、環境変数のPATHにMySQLインストール先を追加する。
+どうやら、下記にインストールされたようだ
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+## mysql 起動
+PATHを追加したら、コマンドプロンプトを立ち上げる
+下記を入力し、パスワードを入力する。mysqlにログインする。
+
+>mysql -u root -p 
+
+## 新規ユーザの追加
+mysqlへのログインができたら、新規ユーザを追加する。
+TinkerGUIにおいて、ユーザとパスワードを下記で追加する。
+
+<User : dbuser >
+<Passwd: dbpasswd >
+
+追加するコマンドは、mysql上で下記となる。
+
+mysql> create user 'devuesr'@'%' identified by 'dbpasswd';
+
+## 新規データベースの作成
+ユーザを追加したら、データベースを作成する。
+TinkerGUIにおいて必要なデータベース名は
+
+<sample>
+
+作成するコマンドは、mysql上で下記となる。
+
+mysql>create database sample;
+
 
